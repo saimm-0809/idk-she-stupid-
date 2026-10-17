@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#ffe4ec">
+<title>For Elna</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blush:#ffe4ec; --berry:#e0456f; --berry-dark:#b8325a; --cream:#fff6e5; --cocoa:#5a3a3f;
+  --mint:#d4f1e4; --lilac:#e9defc; --paper:#fffdf8;
+  --hand:'Caveat','Segoe Print','Comic Sans MS',cursive;
+  --body:'Patrick Hand','Segoe Print','Comic Sans MS',cursive;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--cocoa);background:var(--blush);font-size:1.3rem;line-height:1.5;overflow-x:hidden;
+  background-image:radial-gradient(circle at 20px 20px,rgba(255,255,255,.6) 3px,transparent 4px);background-size:46px 46px;
+  padding-bottom:env(safe-area-inset-bottom,0)}
+h1,h2,h3{font-family:var(--hand);color:var(--berry-dark);line-height:1}
+h2{font-size:clamp(2.4rem,8vw,3.4rem);margin-bottom:.9rem;text-decoration:underline wavy var(--berry) 2px;text-underline-offset:8px;text-decoration-skip-ink:none}
+h3{font-size:2rem;margin-bottom:.4rem}
+p+p{margin-top:.9rem}
+button:focus-visible,a:focus-visible{outline:3px solid var(--berry);outline-offset:4px}
+section{padding:3.2rem 1.25rem;max-width:780px;margin:0 auto}
+.floaty{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.floaty span{position:absolute;bottom:-40px;opacity:0;animation:rise linear forwards}
+@keyframes rise{0%{transform:translateY(0) rotate(0);opacity:0}10%{opacity:.65}100%{transform:translateY(-110vh) rotate(40deg);opacity:0}}
+main{position:relative;z-index:1}
+.hl{background:linear-gradient(transparent 55%,#ffb0c7 55%,#ffb0c7 92%,transparent 92%);padding:0 .15em}
+
+/* hero */
+.hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:calc(2rem + env(safe-area-inset-top,0px))}
+.cupcake{width:min(230px,58vw);cursor:pointer;background:none;border:0;animation:bob 3.4s ease-in-out infinite;-webkit-tap-highlight-color:transparent}
+.cupcake svg{width:100%;height:auto;display:block;filter:drop-shadow(0 12px 12px rgba(184,50,90,.22))}
+.cupcake:active{transform:scale(.94)}
+@keyframes bob{50%{transform:translateY(-10px) rotate(-2deg)}}
+.hero h1{font-size:clamp(3.8rem,17vw,6.6rem);margin-top:.5rem;transform:rotate(-2deg);animation:pop .9s cubic-bezier(.2,1.5,.4,1) .2s both}
+.hero .sub{font-size:1.4rem;margin-top:.5rem;animation:pop .9s cubic-bezier(.2,1.5,.4,1) .5s both}
+.hint{font-size:1rem;opacity:.65;margin-top:.2rem;animation:pop .9s ease 1s both}
+@keyframes pop{from{opacity:0;transform:scale(.7) translateY(20px)}to{opacity:1}}
+.btn{font:inherit;font-size:1.3rem;color:#fff;background:var(--berry);border:2.5px solid var(--berry-dark);border-radius:14px 22px 12px 24px/22px 12px 24px 14px;padding:.55rem 1.7rem;margin-top:1.4rem;cursor:pointer;box-shadow:4px 5px 0 var(--berry-dark);transition:transform .12s,box-shadow .12s;text-decoration:none;display:inline-block}
+.btn:hover{transform:translate(2px,2px);box-shadow:2px 3px 0 var(--berry-dark)}
+.btn:active{transform:translate(4px,5px);box-shadow:0 0 0 var(--berry-dark)}
+
+/* paper notes */
+.note{background:var(--paper);border:2.5px solid var(--cocoa);border-radius:14px 22px 12px 26px/24px 12px 22px 14px;padding:1.6rem 1.5rem;box-shadow:6px 7px 0 rgba(224,69,111,.28);position:relative}
+.note::before{content:"";position:absolute;top:-13px;left:22%;width:92px;height:26px;background:rgba(224,69,111,.28);transform:rotate(-4deg)}
+.tilt-l{transform:rotate(-1.2deg)}.tilt-r{transform:rotate(1deg)}
+.lined{background-image:repeating-linear-gradient(transparent,transparent 1.95rem,rgba(224,69,111,.18) 1.95rem,rgba(224,69,111,.18) 2rem);line-height:2rem;padding-top:1.4rem}
+.loud{font-family:var(--hand);font-weight:700;font-size:clamp(1.9rem,6.4vw,2.7rem);line-height:1.18;color:var(--berry-dark)}
+.loud+p{margin-top:1.2rem}
+
+/* big statement */
+.statement{font-family:var(--hand);font-weight:700;font-size:clamp(2.4rem,9vw,4rem);line-height:1.1;color:var(--berry-dark);transform:rotate(-1deg)}
+.statement+p{margin-top:1.4rem;max-width:34rem;margin-left:auto}
+
+/* pillars */
+.pillars{display:grid;gap:1.8rem;margin-top:2rem}
+.pillars .note:nth-child(1){transform:rotate(-1.6deg);background:var(--cream)}
+.pillars .note:nth-child(2){transform:rotate(1.3deg);background:var(--mint)}
+.pillars .note:nth-child(3){transform:rotate(-.7deg);background:var(--lilac)}
+.pillars .note:nth-child(4){transform:rotate(1.8deg)}
+.pillars .note:nth-child(2)::before{left:55%}.pillars .note:nth-child(3)::before{left:8%}
+@media(min-width:680px){.pillars{grid-template-columns:1fr 1fr}.pillars .note:nth-child(even){margin-top:1.8rem}}
+
+/* flags */
+.compare{display:grid;gap:1.8rem;margin-top:1.8rem}
+.compare ul{list-style:none}
+.compare li{padding-left:1.7rem;position:relative}
+.flag li::before{content:"✕";position:absolute;left:0;color:#c0392b}
+.flag li{text-decoration:line-through wavy rgba(192,57,43,.5) 1.5px}
+.you li::before{content:"♥";position:absolute;left:0;color:var(--berry)}
+.flag{background:#fff0ee;transform:rotate(-1deg)}.you{transform:rotate(1deg)}
+@media(min-width:680px){.compare{grid-template-columns:1fr 1fr}}
+.aside{display:inline-block;font-size:.5em;margin-left:.2rem;color:var(--cocoa);opacity:.8}
+.after{margin-top:1.8rem;font-family:var(--hand);font-weight:700;font-size:1.9rem;color:var(--berry-dark)}
+
+/* promise */
+[hidden]{display:none!important}
+.progress{position:fixed;top:0;left:0;right:0;height:5px;background:var(--berry);transform:scaleX(0);transform-origin:left;z-index:60}
+.pointer{margin-top:.9rem;font-family:var(--hand);font-weight:700;font-size:2.4rem;line-height:1;color:var(--berry);display:flex;flex-direction:column;align-items:center;transform:rotate(-3deg);animation:nudge 1s ease-in-out infinite;transition:opacity .6s}
+.pointer svg{width:54px;height:64px;margin-top:.1rem}
+.pointer.gone{opacity:0;pointer-events:none}
+@keyframes nudge{50%{transform:translateY(8px) rotate(-3deg)}}
+.jokebtn{font:inherit;font-size:1.6rem;margin-top:.5rem;color:var(--berry-dark);background:var(--paper);border:2.5px dashed var(--berry);border-radius:14px 22px 12px 24px/22px 12px 24px 14px;padding:.4rem 1.3rem;cursor:pointer;box-shadow:4px 5px 0 rgba(224,69,111,.28)}
+.jokebtn.pop{animation:shatter .9s ease both}
+@keyframes shatter{0%{transform:scale(1);opacity:1}25%{transform:scale(1.3) rotate(-4deg)}55%{transform:scale(.1);opacity:0}100%{transform:scale(1);opacity:1}}
+.since{margin-top:.6rem;font-size:1.15rem;opacity:.75}
+.calm{text-align:center}.calm h2{text-align:center}
+.orb{width:150px;height:150px;margin:1.4rem auto 1rem;border-radius:50%;display:grid;place-items:center;font-family:var(--hand);font-weight:700;font-size:1.7rem;color:#fff;background:radial-gradient(circle at 35% 30%,#ff9fbd,var(--berry));box-shadow:0 0 0 10px rgba(224,69,111,.15),0 0 40px rgba(224,69,111,.35);transform:scale(.7);transition:transform 4s ease-in-out}
+.orb.in{transform:scale(1.15)}
+.calmline{font-family:var(--hand);font-weight:700;font-size:2rem;line-height:1.15;color:var(--berry-dark);min-height:4.6rem;margin-bottom:.4rem}
+.env{margin-top:1.2rem}
+.env summary{cursor:pointer;list-style:none;background:var(--cream);border:2.5px solid var(--cocoa);border-radius:14px 22px 12px 24px/22px 12px 24px 14px;padding:.7rem 1.1rem;box-shadow:4px 5px 0 rgba(224,69,111,.28);font-family:var(--hand);font-weight:700;font-size:1.8rem;line-height:1.1;color:var(--berry-dark);transition:transform .15s}
+.env summary::-webkit-details-marker{display:none}
+.env summary::before{content:"✉ "}
+.env summary:hover{transform:translateY(-2px) rotate(-.6deg)}
+.env[open] summary{background:var(--blush)}
+.letter{background-color:var(--paper);background-image:repeating-linear-gradient(transparent,transparent 1.95rem,rgba(224,69,111,.18) 1.95rem,rgba(224,69,111,.18) 2rem);line-height:2rem;border:2.5px solid var(--cocoa);border-radius:10px 18px 12px 20px;margin:.6rem .7rem 0;padding:.9rem 1.2rem;transform-origin:top;animation:unfold .55s cubic-bezier(.2,1.2,.4,1) both}
+@keyframes unfold{from{transform:scaleY(0);opacity:0}to{transform:none;opacity:1}}
+.env:nth-child(even){transform:rotate(.6deg)}.env:nth-child(odd){transform:rotate(-.5deg)}
+.polaroids{display:flex;flex-wrap:wrap;gap:1.6rem;justify-content:center;margin-top:1.4rem}
+.polaroid{background:#fff;padding:12px 12px 8px;box-shadow:5px 7px 0 rgba(224,69,111,.25);transform:rotate(var(--tilt,-2deg));width:min(260px,80vw)}
+.polaroid img{width:100%;aspect-ratio:1;object-fit:cover;display:block;background:var(--blush)}
+.polaroid figcaption{font-family:var(--hand);font-weight:700;font-size:1.6rem;text-align:center;padding-top:.4rem;color:var(--berry-dark)}
+.promise ol{list-style:none;margin:1rem 0 0}
+.promise li{padding:.2rem 0 .2rem 1.7rem;position:relative;opacity:.3;transition:opacity .5s,transform .5s;transform:translateX(-8px)}
+.promise li::before{content:"♥";position:absolute;left:0;color:var(--berry)}
+.promise.sealed li{opacity:1;transform:none}
+.promise.sealed li:nth-child(2){transition-delay:.2s}.promise.sealed li:nth-child(3){transition-delay:.4s}
+.promise.sealed li:nth-child(4){transition-delay:.6s}.promise.sealed li:nth-child(5){transition-delay:.8s}
+.seal-msg{font-family:var(--hand);font-weight:700;font-size:2.1rem;color:var(--berry-dark);margin-top:1.2rem;min-height:2.4rem;opacity:0;transition:opacity .8s 1s}
+.promise.sealed .seal-msg{opacity:1}
+
+.reason-list{list-style:none;margin-top:1.6rem;display:grid;gap:1rem}
+.reason-list li{background:var(--paper);border:2.5px solid var(--cocoa);border-radius:12px 20px 14px 22px/20px 12px 22px 14px;padding:.7rem 1rem;display:flex;gap:.8rem;align-items:flex-start;box-shadow:4px 5px 0 rgba(224,69,111,.25);animation:drop .55s cubic-bezier(.2,1.4,.4,1) both}
+.reason-list li:nth-child(odd){transform:rotate(-.6deg)}.reason-list li:nth-child(even){transform:rotate(.7deg)}
+.reason-list .n{flex:none;font-family:var(--hand);font-weight:700;font-size:2rem;line-height:1;color:var(--berry);min-width:2.6rem}
+@keyframes drop{from{opacity:0;margin-top:-16px}to{opacity:1}}
+.counter{margin-top:.8rem;opacity:.7;min-height:1.6rem}
+.finale{margin-top:2.6rem;display:none}
+.finale.show{display:block;animation:pop 1s cubic-bezier(.2,1.5,.4,1) both}
+.jokes{margin-top:2.4rem;text-align:left;transform:rotate(-.8deg)}
+.jokes h3{margin-bottom:.8rem}
+.jokes details{padding:.45rem 0;border-top:2px dashed rgba(90,58,63,.25)}
+.jokes details:first-of-type{border-top:0}
+.jokes summary{cursor:pointer;list-style:none;font-size:1.3rem}
+.jokes summary::-webkit-details-marker{display:none}
+.jokes summary::before{content:"♥ ";color:var(--berry)}
+.jokes details p{margin:.3rem 0 0 1.5rem;font-family:var(--hand);font-weight:700;font-size:1.7rem;color:var(--berry-dark);animation:pop .4s ease both}
+.jokes .tiny{margin-top:.8rem;opacity:.7;font-size:1.05rem}
+.sig{font-family:var(--hand);font-weight:700;font-size:2.4rem;color:var(--berry-dark);margin-top:.6rem}
+
+footer{text-align:center;padding:1.5rem 1rem 3rem;opacity:.65;font-size:1rem;position:relative;z-index:1}
+.burst{position:fixed;pointer-events:none;z-index:50;font-size:1.4rem;animation:burst 1.4s ease-out forwards}
+@keyframes burst{to{transform:translate(var(--x),var(--y)) rotate(var(--r));opacity:0}}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}.floaty{display:none}
+}
+</style>
+</head>
+<body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<div class="floaty" id="floaty" aria-hidden="true"></div>
+
+<main>
+  <header class="hero">
+    <button class="cupcake" id="cupcake" aria-label="Tap the cupcake for a surprise">
+      <svg viewBox="0 0 200 220" aria-hidden="true">
+        <path d="M45 120 L58 205 Q60 214 70 214 L130 214 Q140 214 142 205 L155 120 Z" fill="#f4a3bb"/>
+        <path d="M68 120 L74 214 M100 120 L100 214 M132 120 L126 214" stroke="#e0456f" stroke-opacity=".35" stroke-width="5" fill="none"/>
+        <path d="M30 124 Q24 92 56 88 Q50 56 88 54 Q96 22 126 40 Q158 38 150 76 Q182 84 170 124 Q100 140 30 124 Z" fill="#fff6e5"/>
+        <path d="M30 124 Q100 140 170 124" stroke="#ffc9d9" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <path d="M56 88 Q70 100 92 92 M150 76 Q132 92 112 84" stroke="#ffd9e4" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <g fill="#e0456f"><rect x="62" y="100" width="12" height="4" rx="2" transform="rotate(30 68 102)"/><rect x="120" y="106" width="12" height="4" rx="2" transform="rotate(-25 126 108)"/><rect x="95" y="78" width="12" height="4" rx="2" transform="rotate(70 101 80)"/></g>
+        <g fill="#8fd5b8"><rect x="84" y="108" width="12" height="4" rx="2" transform="rotate(-40 90 110)"/><rect x="140" y="92" width="12" height="4" rx="2" transform="rotate(50 146 94)"/><rect x="72" y="72" width="12" height="4" rx="2" transform="rotate(-10 78 74)"/></g>
+        <path d="M100 52 C70 22 86 4 100 18 C114 4 130 22 100 52 Z" fill="#e0456f"/>
+        <path d="M92 20 Q96 14 102 20" stroke="#fff" stroke-opacity=".6" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <h1>hey, <span data-nick>Cupcake</span></h1>
+    <p class="sub">this one’s for you, <span data-name>Elna</span>.</p>
+    <p class="hint">(poke the cupcake)</p>
+    <div class="pointer" id="pointer" aria-hidden="true">click me
+      <svg viewBox="0 0 54 64" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M27 4 C24 22 30 34 27 54"/><path d="M10 38 L27 58 L44 38"/></svg>
+    </div>
+    <button class="jokebtn" id="jokeBtn">(Jeppy When😉)</button>
+    <p class="since" id="since" hidden></p>
+    <a class="btn" href="#first">read it</a>
+  </header>
+
+  <section id="first">
+    <div class="note lined tilt-l">
+      <p class="loud"><span data-name>Elna</span>, listen.</p>
+      <p>i don’t care if you thought someone was cute. i’ll still love you till the day i die. i made this whole website <span class="hl">SO YOU KNOW I LOVE YOU</span>, <span data-tease>you ridiculous bitchass dummy</span>.</p>
+      <p>i’m not mad, i’m not weird about it, i’m not looking at you any different. i’m right here.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="statement">finding someone cute does <span class="hl">not</span> make you a red flag.</p>
+    <p>it makes you a person with eyes. you didn’t choose that thought, it just showed up, like everybody’s does. what counts is who you chose to still love, and you chose me.</p>
+  </section>
+
+  <section>
+    <h2>what i’m holding onto</h2>
+    <div class="pillars">
+      <div class="note"><h3>trust</h3><p>i trust you. trust isn’t me hoping you never notice anyone. it’s me knowing you, and knowing what you choose every day.</p></div>
+      <div class="note"><h3>honesty</h3><p>telling me something awkward is the opposite of a red flag. it means you’d rather be real with me than hide. i’ll take your honest over a perfect silence any day.</p></div>
+      <div class="note"><h3>intentions</h3><p>a feeling is just a feeling. what you do with it is what matters, and you stay, you care, you pick us.</p></div>
+      <div class="note"><h3>no judgment</h3><p>none. not for a thought, not for telling me, not for being a human. i love the messy parts too.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>so what IS a red flag? <span class="aside">(for some stupid ppl)</span></h2>
+    <div class="compare">
+      <div class="note flag"><h3>actual red flags</h3><ul>
+        <li>lying</li><li>hiding stuff</li><li>doing things behind my back</li><li>controlling me or making me feel small</li></ul></div>
+      <div class="note you"><h3>you</h3><ul>
+        <li>telling me the truth</li><li>caring how i feel</li><li>choosing me out loud</li><li>overthinking because you love me</li></ul></div>
+    </div>
+    <p class="after">see? you’re nowhere on the left.</p>
+  </section>
+
+  <section id="loud">
+    <div class="note tilt-r calm">
+      <h2>when it gets loud again</h2>
+      <p>if your brain starts spiraling, press this. i’ll wait.</p>
+      <button class="btn" id="calmBtn">my brain is being loud</button>
+      <div id="calmBox" hidden>
+        <div class="orb" id="orb" aria-live="polite">breathe in</div>
+        <p class="calmline" id="calmLine"></p>
+        <button class="btn" id="calmDone">i’m okay now</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="envelopes">
+    <h2>open when...</h2>
+    <p>little letters. tap one when you need it.</p>
+    <details class="env"><summary>you feel guilty</summary><div class="letter"><p>you didn’t do anything wrong. a thought isn’t a betrayal, and telling me was the honest, brave thing to do. i love you more for it, not less.</p></div></details>
+    <details class="env"><summary>your brain gets loud</summary><div class="letter"><p>it’s lying to you. you’re not a red flag, you’re not too much, and you’re not a bad girlfriend. i’m not going anywhere. breathe, then read the top of this page again.</p></div></details>
+    <details class="env"><summary>you doubt us</summary><div class="letter"><p>we’re fine. we’re better than fine. i picked you, i’d pick you again, and that’s not changing.</p></div></details>
+    <details class="env"><summary>you miss me</summary><div class="letter"><p>i miss you too, stupidly much. text me, call me, whatever you want. i’m yours either way.</p></div></details>
+    <details class="env"><summary>you can’t sleep</summary><div class="letter"><p>close your eyes and picture me being annoying next to you. okay? goodnight, Cupcake. i love you.</p></div></details>
+  </section>
+
+  <section class="promise" id="promise">
+    <div class="note lined tilt-r">
+      <h2>my promise</h2>
+      <ol>
+        <li>i won’t judge you for being human.</li>
+        <li>you can tell me anything and i’ll listen first.</li>
+        <li>i’ll be honest with you too, always.</li>
+        <li>someone being cute will never change how i see you.</li>
+        <li>i’m still here. i’m still yours.</li>
+      </ol>
+      <button class="btn" id="seal">pinky promise</button>
+      <p class="seal-msg">sealed. pinky promise, <span data-name>Elna</span>.</p>
+    </div>
+  </section>
+
+  <section id="polaroids" hidden>
+    <h2>us</h2>
+    <div class="polaroids" id="polaroidGrid"></div>
+  </section>
+
+  <section class="reasons" id="reasons">
+    <h2>reasons i love you</h2>
+    <p>press the button. there are 100, and i mean it.</p>
+    <ul class="reason-list" id="reasonList" aria-live="polite"></ul>
+    <p class="counter" id="counter"></p>
+    <button class="btn" id="moreBtn">give me a reason</button> <button class="btn" id="tenBtn">show 10 more</button>
+    <div class="finale" id="finale">
+      <p class="statement">i love you, <span data-name>Elna</span>.</p>
+      <p>that’s it. that’s the whole website. you’re safe with me, <span data-nick>Cupcake</span>.</p>
+      <p class="sig">love, <span data-him>Saim</span> ♥</p>
+      <div class="note jokes">
+        <h3>bonus: dad jokes (sorry)</h3>
+        <details><summary>why did the cupcake go to the doctor?</summary><p>because it was feeling crummy.</p></details>
+        <details><summary>what do you call a fake noodle?</summary><p>an impasta.</p></details>
+        <details><summary>i’m reading a book about anti-gravity.</summary><p>it’s impossible to put down.</p></details>
+        <details><summary>why don’t eggs tell jokes?</summary><p>they’d crack each other up.</p></details>
+        <details><summary>do you like raisins?</summary><p>how do you feel about a date with me?</p></details>
+        <p class="tiny">(tap each one. yes, you have to. no, i’m not sorry.)</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>made by hand (well, by keyboard), just for you.</footer>
+
+<script>
+/* ===== EDIT THESE ===== */
+const CONFIG = {
+  name: "Elna",
+  nick: "Cupcake",
+  him: "Saim",
+  tease: "you ridiculous bitchass dummy", // swap or change the insult here
+  since: "",   // optional: the day you got together, like "2025-03-14". shows a days counter on top
+  photos: [],  // optional: [{src:"us1.jpg", caption:"our first date"}, ...] (put the pictures next to index.html)
+  calm: [
+    "you are not a red flag.",
+    "a passing thought is not a betrayal.",
+    "i’m not upset. i’m right here.",
+    "telling me the truth is a green flag.",
+    "i choose you. again.",
+    "you’re allowed to be human.",
+    "nothing about this changes how much i love you.",
+    "you’re safe with me, Cupcake."
+  ],
+  reasons: [
+    "you tell me the truth even when it’s scary.",
+    "your laugh fixes my whole day.",
+    "you care so hard about the people you love.",
+    "you’re nice to people who can’t do anything for you.",
+    "you make boring moments feel like a movie.",
+    "you’re brave enough to be honest with me.",
+    "you’re stupidly cute when you’re being silly.",
+    "you make me want to be better.",
+    "i could talk to you about nothing for hours.",
+    "you’re the same person when nobody’s watching.",
+    "even your worrying comes from loving me.",
+    "i feel at home with you, Elna.",
+    "you remember the small things i say.",
+    "you make me smile without even trying.",
+    "your texts are the best part of my notifications.",
+    "you listen when i complain, even about dumb stuff.",
+    "you’re patient with me when i’m annoying.",
+    "you make plans feel exciting just because you’re in them.",
+    "you’re the first person i want to tell everything to.",
+    "you’re smart in ways that surprise me.",
+    "you say what you feel instead of hiding it.",
+    "you make me feel like i’m enough.",
+    "you laugh at my bad jokes. well, most of them.",
+    "you make silence comfortable.",
+    "you’re cute when you’re sleepy.",
+    "you’re cute when you’re annoyed at me, too.",
+    "you pick me, every single day.",
+    "you’re loyal in a way that’s real, not just words.",
+    "you make my worst days softer.",
+    "you celebrate my wins like they’re yours.",
+    "you hype me up when i doubt myself.",
+    "you tell me when i’m being dumb, and you do it lovingly.",
+    "you’re so easy to be myself around.",
+    "you make me laugh when i’m trying to be serious.",
+    "you care about my feelings, even the small ones.",
+    "you’re soft and strong at the same time.",
+    "you try so hard for the people you love.",
+    "you’re forgiving when i mess up.",
+    "you make even a normal walk feel special.",
+    "you have the best random thoughts.",
+    "you always make me feel wanted.",
+    "you’re adorable when you get excited.",
+    "you make my heart do the stupid thing.",
+    "you keep my secrets safe.",
+    "you make me braver.",
+    "you’re thoughtful without needing credit.",
+    "you check on me when i go quiet.",
+    "you’re funny in a way only you are.",
+    "you make even a boring chore fun.",
+    "you finish my sentences and i love it.",
+    "you make me proud to be yours.",
+    "your voice is my favorite sound.",
+    "you make every day feel like the weekend.",
+    "you’re gentle with my feelings.",
+    "you’re honest about your feelings, even the scary ones.",
+    "you make me feel safe.",
+    "you’re a little stubborn and i find it cute.",
+    "you give the best hugs.",
+    "you’re beautiful without even trying.",
+    "you turn dumb inside jokes into our thing.",
+    "you’re someone i can be quiet and happy with.",
+    "you notice when something’s wrong with me.",
+    "you’re growing every day and i love watching it.",
+    "you’re braver than you think.",
+    "you’re more loved than you realize.",
+    "you make my future look brighter.",
+    "you’re my favorite “good morning.”",
+    "you’re my favorite “good night.”",
+    "you care about doing the right thing.",
+    "you make hard days feel doable.",
+    "you make me laugh at myself.",
+    "you’re so warm.",
+    "you’re the reason i check my phone with a smile.",
+    "you’re really good at loving people.",
+    "you let me love you without making me earn it.",
+    "you make me want to take care of you.",
+    "you’re creative in ways you don’t give yourself credit for.",
+    "you’re a great listener.",
+    "you deserve all the good things, and i want to give you some.",
+    "you make me feel like the luckiest guy.",
+    "you never make me feel stupid for asking things.",
+    "you’re one of a kind, Cupcake.",
+    "you’re beautiful inside and out.",
+    "you have the sweetest heart.",
+    "you make me feel understood.",
+    "you’re my best friend and my favorite person.",
+    "you make every day worth showing up for.",
+    "you’re mine and i’m yours, and that’s my favorite thing.",
+    "you’re cute when you get shy.",
+    "you’re the best thing that’s happened to me.",
+    "you make me believe in the good stuff.",
+    "you make me want to be honest too.",
+    "you remind me what matters.",
+    "you’re a safe place for me.",
+    "you’re hard to stop thinking about, and i don’t even try.",
+    "you’re stuck in my head and i’m happy about it.",
+    "you’re worth every minute of my day.",
+    "i trust you completely.",
+    "i’d pick you in every lifetime.",
+    "i love you, Elna. that’s the biggest reason of all."
+  ]
+};
+/* ======================= */
+
+const $ = s => document.querySelector(s);
+const fill = (attr, val) => document.querySelectorAll("[" + attr + "]").forEach(e => e.textContent = val);
+fill("data-name", CONFIG.name); fill("data-nick", CONFIG.nick); fill("data-him", CONFIG.him); fill("data-tease", CONFIG.tease);
+document.title = "For " + CONFIG.name;
+
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const glyphs = ["💗","💕","🌸","✨","🧁","💖"];
+
+/* floating hearts */
+if (!reduce) setInterval(() => {
+  const s = document.createElement("span");
+  s.textContent = glyphs[Math.floor(Math.random() * glyphs.length)];
+  s.style.left = Math.random() * 100 + "vw";
+  s.style.fontSize = 14 + Math.random() * 20 + "px";
+  s.style.animationDuration = 9 + Math.random() * 8 + "s";
+  $("#floaty").appendChild(s);
+  setTimeout(() => s.remove(), 18000);
+}, 1200);
+
+/* heart burst */
+function burst(x, y, n = 18, set = glyphs) {
+  if (reduce) return;
+  for (let i = 0; i < n; i++) {
+    const b = document.createElement("span");
+    b.className = "burst";
+    b.textContent = set[Math.floor(Math.random() * set.length)];
+    const a = Math.random() * Math.PI * 2, d = 70 + Math.random() * 130;
+    b.style.left = x + "px"; b.style.top = y + "px";
+    b.style.setProperty("--x", Math.cos(a) * d + "px");
+    b.style.setProperty("--y", Math.sin(a) * d - 40 + "px");
+    b.style.setProperty("--r", Math.random() * 180 - 90 + "deg");
+    document.body.appendChild(b);
+    setTimeout(() => b.remove(), 1500);
+  }
+}
+const centerOf = el => { const r = el.getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2]; };
+
+$("#cupcake").addEventListener("click", e => burst(...centerOf(e.currentTarget), 22));
+
+/* inside joke */
+$("#jokeBtn").addEventListener("click", e => {
+  const btn = e.currentTarget;
+  burst(...centerOf(btn), 30, ["😝", "😝", "💖", "✨", "🧁"]);
+  btn.classList.remove("pop"); void btn.offsetWidth; btn.classList.add("pop");
+  $("#pointer").classList.add("gone");
+});
+
+/* promise */
+$("#seal").addEventListener("click", e => {
+  $("#promise").classList.add("sealed");
+  burst(...centerOf(e.currentTarget), 26);
+  e.currentTarget.disabled = true;
+  e.currentTarget.textContent = "sealed ♥";
+});
+
+/* progress bar + tap hearts */
+const bar = $("#progress");
+addEventListener("scroll", () => {
+  const h = document.documentElement;
+  bar.style.transform = "scaleX(" + h.scrollTop / ((h.scrollHeight - h.clientHeight) || 1) + ")";
+}, { passive: true });
+addEventListener("pointerdown", e => { if (!e.target.closest("button,a,summary")) burst(e.clientX, e.clientY, 5); });
+
+/* days together */
+if (CONFIG.since) {
+  const d = Math.floor((Date.now() - new Date(CONFIG.since + "T00:00:00")) / 864e5);
+  if (d > 0) { const el = $("#since"); el.textContent = "loving you for " + d + " days and counting"; el.hidden = false; }
+}
+
+/* calm button */
+const calmBtn = $("#calmBtn"), calmBox = $("#calmBox"), orb = $("#orb"), calmLine = $("#calmLine");
+let calmTimer;
+calmBtn.addEventListener("click", () => {
+  calmBox.hidden = false; calmBtn.hidden = true;
+  let i = Math.floor(Math.random() * CONFIG.calm.length), b = 0;
+  const tick = () => {
+    const inhale = b % 2 === 0;
+    orb.textContent = inhale ? "breathe in" : "breathe out";
+    orb.classList.toggle("in", inhale);
+    if (inhale) calmLine.textContent = CONFIG.calm[i++ % CONFIG.calm.length];
+    b++;
+  };
+  setTimeout(tick, 60);
+  calmTimer = setInterval(tick, 4000);
+});
+$("#calmDone").addEventListener("click", () => {
+  clearInterval(calmTimer);
+  calmBox.hidden = true; calmBtn.hidden = false;
+  calmBtn.textContent = "it got loud again";
+  orb.classList.remove("in");
+  burst(...centerOf(calmBtn), 14);
+});
+
+/* polaroids */
+if (CONFIG.photos.length) {
+  CONFIG.photos.forEach((p, i) => {
+    const f = document.createElement("figure"); f.className = "polaroid";
+    f.style.setProperty("--tilt", (i % 2 ? 2 : -2.5) + "deg");
+    const im = document.createElement("img"); im.src = p.src; im.alt = p.caption || "us"; im.loading = "lazy";
+    const c = document.createElement("figcaption"); c.textContent = p.caption || "";
+    f.append(im, c); $("#polaroidGrid").appendChild(f);
+  });
+  $("#polaroids").hidden = false;
+}
+
+/* reasons */
+let shown = 0;
+const moreBtn = $("#moreBtn"), tenBtn = $("#tenBtn"), list = $("#reasonList"), counter = $("#counter");
+function addReason(k) {
+  const li = document.createElement("li");
+  li.innerHTML = '<span class="n"></span><span></span>';
+  li.firstChild.textContent = (shown + 1) + ".";
+  li.lastChild.textContent = CONFIG.reasons[shown];
+  li.style.animationDelay = k * 0.06 + "s";
+  list.appendChild(li);
+  shown++;
+}
+function afterAdd(btn) {
+  const total = CONFIG.reasons.length;
+  counter.textContent = shown + " / " + total + " (and counting)";
+  burst(...centerOf(btn), 8);
+  list.lastElementChild.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+  if (shown >= total) {
+    moreBtn.style.display = "none"; tenBtn.style.display = "none";
+    counter.textContent = "";
+    const f = $("#finale");
+    f.classList.add("show");
+    setTimeout(() => { burst(innerWidth / 2, innerHeight / 2, 40); f.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" }); }, 900);
+  } else {
+    moreBtn.textContent = "another one";
+    if (total - shown < 10) tenBtn.textContent = "show the last " + (total - shown);
+  }
+}
+moreBtn.addEventListener("click", () => { if (shown < CONFIG.reasons.length) { addReason(0); afterAdd(moreBtn); } });
+tenBtn.addEventListener("click", () => {
+  for (let k = 0; k < 10 && shown < CONFIG.reasons.length; k++) addReason(k);
+  afterAdd(tenBtn);
+});
+</script>
+</body>
+</html>
